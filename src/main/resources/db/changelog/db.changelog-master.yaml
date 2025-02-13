@@ -1,17 +1,3 @@
 databaseChangeLog:
-  - changeSet:
-      id: 1
-      author: yourname
-      changes:
-        - createTable:
-            tableName: example_table
-            columns:
-              - column:
-                  name: id
-                  type: int
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: name
-                  type: varchar(255)
+  - include:
+      file: db/changelog/tables/CREATE_CONFIRMATIONS_TABLE.yaml
