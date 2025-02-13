@@ -16,7 +16,7 @@ import java.util.Date;
 public class ConfirmationEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(name = "name", nullable = false)
@@ -25,7 +25,7 @@ public class ConfirmationEntity {
 	@Column(name = "document", nullable = false)
 	private String document;
 
-	@Column(name = "key", nullable = false)
+	@Column(name = "key_pass", nullable = false)
 	private String key;
 
 	@Temporal(TemporalType.TIMESTAMP)

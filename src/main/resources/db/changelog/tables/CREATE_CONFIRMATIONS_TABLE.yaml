@@ -24,7 +24,7 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: key
+                  name: key_pass
                   type: VARCHAR(255)
                   constraints:
                     nullable: false
