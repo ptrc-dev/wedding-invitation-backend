@@ -5,8 +5,8 @@ import com.ptrc.dev.wedding.invitation.repositories.ConfirmationRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
 public class ConfirmationService {
@@ -19,7 +19,7 @@ public class ConfirmationService {
 		return confirmationRepository.save(confirmationEntity);
 	} // alterar aqui para verificar usando o service das keys se a key já foi usada, existe ou não foi usada
 
-	public List<ConfirmationEntity> getAllConfirmations() {
-		return confirmationRepository.findAll();
+	public Page<ConfirmationEntity> getAllConfirmations(Pageable pageable) {
+		return confirmationRepository.findAll(pageable);
 	}
 }
