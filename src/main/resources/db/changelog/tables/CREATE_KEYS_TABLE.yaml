@@ -1,0 +1,32 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: lucenasoft
+      changes:
+        - createTable:
+            tableName: keys
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: key_pass
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: used
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+                  defaultValueBoolean: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+                  defaultValueComputed: CURRENT_TIMESTAMP
