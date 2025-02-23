@@ -36,7 +36,7 @@ public class ConfirmationController {
 		var confirmation = confirmationService.findByDocument(confirmationDto.document());
 
 		if (confirmation != null) {
-			response.setMessage("CPF já confirmado!");
+			response.setMessage("CPF já confirmado!!");
 			return ResponseEntity.badRequest().body(response);
 		}
 
