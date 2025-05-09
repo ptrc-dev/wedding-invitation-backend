@@ -25,7 +25,7 @@ public class ConfirmationService {
 		return confirmationRepository.findAll(pageable);
 	}
 
-	public ConfirmationEntity findByDocument(String document) {
-		return confirmationRepository.findByDocument(document);
+	public ConfirmationEntity findByName(String name) {
+		return confirmationRepository.findByName(name);
 	}
 }

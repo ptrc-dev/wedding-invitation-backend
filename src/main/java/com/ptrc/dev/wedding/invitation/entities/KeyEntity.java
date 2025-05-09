@@ -8,7 +8,7 @@ import lombok.Setter;
 
 import java.util.Date;
 
-@Entity(name = "keys")
+@Entity(name = "keys_confirmation")
 @AllArgsConstructor
 @NoArgsConstructor
 public class KeyEntity {

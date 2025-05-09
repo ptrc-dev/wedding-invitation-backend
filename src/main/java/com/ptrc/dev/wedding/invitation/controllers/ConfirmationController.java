@@ -5,7 +5,6 @@ import com.ptrc.dev.wedding.invitation.entities.ConfirmationEntity;
 import com.ptrc.dev.wedding.invitation.responses.ResponseConfirmation;
 import com.ptrc.dev.wedding.invitation.services.ConfirmationService;
 import com.ptrc.dev.wedding.invitation.services.KeyService;
-import com.ptrc.dev.wedding.invitation.utils.CpfUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.beans.BeanUtils;
@@ -33,24 +32,20 @@ public class ConfirmationController {
 		ResponseConfirmation response = new ResponseConfirmation();
 
 		var key = keyService.findByKey(confirmationDto.key());
-		var confirmation = confirmationService.findByDocument(confirmationDto.document());
+		var confirmation = confirmationService.findByName(confirmationDto.name());
 
 		if (confirmation != null) {
-			response.setMessage("CPF já confirmado!!");
+			response.setMessage("Você já confirmaou sua presença!");
 			return ResponseEntity.badRequest().body(response);
 		}
 
 		if (key == null) {
-			return ResponseEntity.notFound().build();
+      response.setMessage("Chave não existe ou incorreta!");
+      return ResponseEntity.badRequest().body(response);
 		}
 
 		if (key.isUsed()) {
 			response.setMessage("Chave já utilizada!");
-			return ResponseEntity.badRequest().body(response);
-		}
-
-		if (!CpfUtils.isValidCPF(confirmationDto.document())) {
-			response.setMessage("CPF inválido!");
 			return ResponseEntity.badRequest().body(response);
 		}
 

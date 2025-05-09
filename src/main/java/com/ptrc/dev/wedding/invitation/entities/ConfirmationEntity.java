@@ -22,8 +22,11 @@ public class ConfirmationEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@Column(name = "document", nullable = false)
-	private String document;
+	@Column(name = "email", nullable = false)
+	private String email;
+
+  @Column(name = "phone", nullable = false)
+  private String phone;
 
 	@Column(name = "key_pass", nullable = false)
 	private String key;

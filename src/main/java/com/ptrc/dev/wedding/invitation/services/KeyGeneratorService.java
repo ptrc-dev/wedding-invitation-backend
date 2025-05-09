@@ -18,14 +18,14 @@ public class KeyGeneratorService {
 	@Autowired
 	private KeyRepository keyRepository;
 
-	@PostConstruct
-	public void init() {
-		generateKeys();
-	}
+//	@PostConstruct
+//	public void init() {
+//		generateKeys();
+//	}
 
 	public void generateKeys() {
-		if (keyRepository.count() >= 100) {
-			throw new RuntimeException("Cannot generate more than 100 keys");
+		if (keyRepository.count() >= 120) {
+			throw new RuntimeException("Cannot generate more than 120 keys");
 		}
 
 		List<KeyEntity> keys = new ArrayList<>();
@@ -40,6 +40,6 @@ public class KeyGeneratorService {
 	}
 
 	public boolean hasMoreThan100Keys() {
-		return keyRepository.count() > 100;
+		return keyRepository.count() > 120;
 	}
 }

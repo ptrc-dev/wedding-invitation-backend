@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ConfirmationRepository extends JpaRepository<ConfirmationEntity, Long> {
 	public Page<ConfirmationEntity> findAll(Pageable pageable);
-	public ConfirmationEntity findByDocument(String document);
+	public ConfirmationEntity findByName(String name);
 }
